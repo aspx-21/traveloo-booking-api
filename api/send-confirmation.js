@@ -28,31 +28,30 @@ export default async function handler(req, res) {
   });
 
   const message = {
-    from: `"Traveloo" <${process.env.SMTP_USER}>`,
-    to: email,
-    subject: "Your Traveloo Booking is Confirmed!",
-    text: `
-Hi ${fullName},
+  from: `"Traveloo" <${process.env.SMTP_USER}>`,
+  to: email,
+  subject: "Your Traveloo Booking is Confirmed!",
+  html: `
+    <div style="font-family: 'Arial', sans-serif; max-width: 600px; margin: auto; border: 1px solid #ddd; padding: 20px; border-radius: 10px;">
+      <h2 style="color: #1484C0;">Hi ${fullName},</h2>
+      <p>Thank you for booking with <strong>Traveloo Car Rental</strong>!</p>
+      <h3 style="color: #1484C0; margin-top: 30px;">Booking Details</h3>
+      <table style="width: 100%; border-collapse: collapse;">
+        <tr><td><strong>Destination:</strong></td><td>${destination}</td></tr>
+        <tr><td><strong>Vehicle:</strong></td><td>${vehicle}</td></tr>
+        <tr><td><strong>Start Date/Time:</strong></td><td>${startDateTime}</td></tr>
+        <tr><td><strong>End Date/Time:</strong></td><td>${endDateTime}</td></tr>
+        <tr><td><strong>Total Rent:</strong></td><td>₱${totalRent}</td></tr>
+        <tr><td><strong>Reservation Fee:</strong></td><td>₱${reservationFee}</td></tr>
+        <tr><td><strong>Amount Due:</strong></td><td><strong>₱${amountDue}</strong></td></tr>
+      </table>
+      <p style="margin-top: 30px;">Please prepare the required documents and remaining payment upon pick-up.</p>
+      <p>If you have any questions, just reply to this email.</p>
+      <p style="margin-top: 40px;">- Traveloo Car Rental</p>
+    </div>
+  `
+};
 
-Thank you for booking with Traveloo!
-
-Here are your booking details:
-
-Destination: ${destination}
-Vehicle: ${vehicle}
-Start: ${startDateTime}
-End: ${endDateTime}
-Total Rent: ₱${totalRent}
-Reservation Fee: ₱${reservationFee}
-Amount Due: ₱${amountDue}
-
-Please prepare the required documents and balance upon pick-up.
-
-If you have any questions, reply to this email.
-
-- Traveloo Car Rental
-`
-  };
 
   try {
     await transporter.sendMail(message);
