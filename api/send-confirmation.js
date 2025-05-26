@@ -1,3 +1,17 @@
+function formatDate(dateInput) {
+  const date = new Date(dateInput);
+  return date.toLocaleString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true
+  });
+}
+
+
+
 const nodemailer = require("nodemailer");
 
 export default async function handler(req, res) {
@@ -10,8 +24,8 @@ export default async function handler(req, res) {
     email,
     destination,
     vehicle,
-    startDateTime,
-    endDateTime,
+    formatDate(startDateTime),
+    formatDate(endDateTime),
     totalRent,
     reservationFee,
     amountDue
