@@ -36,7 +36,7 @@ export default async function handler(req, res) {
       <h2 style="color: #1484C0;">Hi ${fullName},</h2>
       <p>Thank you for booking with <strong>Traveloo</strong>!</p>
       <h3 style="color: #1484C0; margin-top: 30px;">Booking Details</h3>
-      <table style="width: 100%; border-collapse: collapse;font-size:0.5rem;">
+      <table style="width: 100%; border-collapse: collapse;font-size:0.85rem;">
         <tr><td><strong>Destination:</strong></td><td>${destination}</td></tr>
         <tr><td><strong>Vehicle:</strong></td><td>${vehicle}</td></tr>
         <tr><td><strong>Start Date/Time:</strong></td><td>${startDateTime}</td></tr>
@@ -47,7 +47,6 @@ export default async function handler(req, res) {
       </table>
       <p style="margin-top: 30px;">Please prepare the required documents and remaining payment upon pick-up.</p>
       <p>If you have any questions, just reply to this email.</p>
-      <p style="margin-top: 40px;">- Traveloo Car Rental</p>
     </div>
   `
 };
