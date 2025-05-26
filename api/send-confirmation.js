@@ -32,11 +32,11 @@ export default async function handler(req, res) {
   to: email,
   subject: "Your Traveloo Booking is Confirmed!",
   html: `
-    <div style="font-family: 'Arial', sans-serif; max-width: 600px; margin: auto; border: 1px solid #ddd; padding: 20px; border-radius: 10px;">
+    <div style="font-family: 'Arial', sans-serif; max-width: 600px; margin: 10px auto; border: 1px solid #ddd; padding: 20px; border-radius: 10px;">
       <h2 style="color: #1484C0;">Hi ${fullName},</h2>
-      <p>Thank you for booking with <strong>Traveloo Car Rental</strong>!</p>
+      <p>Thank you for booking with <strong>Traveloo</strong>!</p>
       <h3 style="color: #1484C0; margin-top: 30px;">Booking Details</h3>
-      <table style="width: 100%; border-collapse: collapse;">
+      <table style="width: 100%; border-collapse: collapse;font-size:0.5rem;">
         <tr><td><strong>Destination:</strong></td><td>${destination}</td></tr>
         <tr><td><strong>Vehicle:</strong></td><td>${vehicle}</td></tr>
         <tr><td><strong>Start Date/Time:</strong></td><td>${startDateTime}</td></tr>
